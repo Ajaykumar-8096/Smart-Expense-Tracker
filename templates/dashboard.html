@@ -1,0 +1,26 @@
+<h2>Add Expense</h2>
+
+
+<form method="POST">
+  <input name="amount" placeholder="Amount" required>
+  <input name="category" placeholder="Category" required>
+  <input name="description" placeholder="Description">
+  <input type="date" name="date" required>
+  <button>Add</button>
+</form>
+
+<h3>Your Expenses</h3>
+<ul>
+  {% for e in expenses %}
+    <li>{{ e.category }} - ₹{{ e.amount }} ({{ e.expense_date }})</li>
+  {% endfor %}
+</ul>
+
+<h3>Category Summary</h3>
+<ul>
+  {% for s in summary %}
+    <li>{{ s.category }} : ₹{{ s.total }}</li>
+  {% endfor %}
+</ul>
+
+<a href="/logout">Logout</a>
